@@ -1,0 +1,28 @@
+{
+  "name": "antigravity-wrapper-node",
+  "version": "1.0.0",
+  "description": "Standalone Node.js SDK wrapper for the Google AGY CLI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "agy",
+    "antigravity",
+    "llm",
+    "cli",
+    "wrapper"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "5.7.3"
+  }
+}
