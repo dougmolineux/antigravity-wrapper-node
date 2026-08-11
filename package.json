@@ -16,8 +16,16 @@
     "cli",
     "wrapper"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Doug Molineux",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dougmolineux/antigravity-wrapper-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dougmolineux/antigravity-wrapper-node/issues"
+  },
+  "homepage": "https://github.com/dougmolineux/antigravity-wrapper-node#readme",
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
