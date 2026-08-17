@@ -38,7 +38,7 @@ describe('AGYAdapter API & Execution Methods', () => {
     expect(result.output).toBe('Sample output from AGY');
     expect(mockRunner).toHaveBeenCalledWith({
       cliPath: '/usr/local/bin/agy',
-      args: ['--model', 'pro', '--dangerously-skip-permissions', '--print', 'Refactor code'],
+      args: ['--model', 'pro', '--dangerously-skip-permissions', '--output-format', 'json', '--print', 'Refactor code'],
       cwd: '/my/project',
       env: { TEST_ENV: '1' },
       timeoutMs: 15000,
@@ -51,7 +51,7 @@ describe('AGYAdapter API & Execution Methods', () => {
     expect(result.output).toBe('Sample output from AGY');
     expect(mockRunner).toHaveBeenCalledWith({
       cliPath: '/usr/local/bin/agy',
-      args: ['--conversation', 'conv-999', '--dangerously-skip-permissions', '--print', 'Continue task'],
+      args: ['--conversation', 'conv-999', '--dangerously-skip-permissions', '--output-format', 'json', '--print', 'Continue task'],
       cwd: '/default/workspace',
       env: { TEST_ENV: '1' },
       timeoutMs: 15000,
@@ -74,6 +74,23 @@ describe('AGYAdapter API & Execution Methods', () => {
       dangerouslySkipPermissions: false,
     });
 
-    expect(args).toEqual(['--print', 'Safe run']);
+    expect(args).toEqual(['--output-format', 'json', '--print', 'Safe run']);
+  });
+
+  it('should extract response and conversation_id when output is JSON', async () => {
+    mockRunner.mockResolvedValueOnce({
+      stdout: JSON.stringify({
+        conversation_id: 'new-uuid-123',
+        response: 'JSON parsed output from AGY',
+      }),
+      stderr: '',
+      exitCode: 0,
+      durationMs: 90,
+      timedOut: false,
+    });
+
+    const result = await adapter.send('Test JSON parsing');
+    expect(result.output).toBe('JSON parsed output from AGY');
+    expect(result.conversationId).toBe('new-uuid-123');
   });
 });

@@ -26,13 +26,13 @@ describe('AGY Model Surface & Telemetry', () => {
       prompt: 'Hello',
       model: 'pro',
     });
-    expect(argsPro).toEqual(['--model', 'pro', '--dangerously-skip-permissions', '--print', 'Hello']);
+    expect(argsPro).toEqual(['--model', 'pro', '--dangerously-skip-permissions', '--output-format', 'json', '--print', 'Hello']);
 
     const argsInherit = adapter.buildArgs({
       prompt: 'Hello',
       model: 'inherit',
     });
-    expect(argsInherit).toEqual(['--dangerously-skip-permissions', '--print', 'Hello']);
+    expect(argsInherit).toEqual(['--dangerously-skip-permissions', '--output-format', 'json', '--print', 'Hello']);
   });
 
   it('should attach modelUsed in execution result', async () => {
@@ -51,7 +51,7 @@ describe('AGY Model Surface & Telemetry', () => {
     expect(result.output).toBe('Response output');
     expect(mockRunner).toHaveBeenCalledWith(
       expect.objectContaining({
-        args: ['--model', 'flash_lite', '--dangerously-skip-permissions', '--print', 'Analyze code'],
+        args: ['--model', 'flash_lite', '--dangerously-skip-permissions', '--output-format', 'json', '--print', 'Analyze code'],
       }),
     );
   });

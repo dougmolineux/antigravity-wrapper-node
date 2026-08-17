@@ -23,11 +23,13 @@ export class AGYSession {
   private adapter: AGYAdapter;
   private history: MessageExchange[] = [];
   private lastActivityAt: Date;
+  private realConversationId?: string;
 
   constructor(adapter: AGYAdapter, config: AGYSessionConfig) {
     this.adapter = adapter;
     this.projectPath = config.projectPath;
     this.conversationId = config.conversationId || randomUUID();
+    this.realConversationId = config.conversationId;
     this.model = config.model;
     this.lastActivityAt = new Date();
   }
@@ -44,10 +46,14 @@ export class AGYSession {
     const result = await this.adapter.execute({
       ...options,
       prompt,
-      conversationId: this.conversationId,
+      conversationId: this.realConversationId,
       projectPath: this.projectPath,
       model: options.model || this.model,
     });
+
+    if (result.conversationId) {
+      this.realConversationId = result.conversationId;
+    }
 
     this.lastActivityAt = new Date();
 

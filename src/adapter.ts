@@ -77,6 +77,8 @@ export class AGYAdapter {
       args.push('--dangerously-skip-permissions');
     }
 
+    args.push('--output-format', 'json');
+
     args.push('--print', options.prompt);
 
     return args;
@@ -99,9 +101,26 @@ export class AGYAdapter {
       timeoutMs,
     });
 
+    let finalOutput = result.stdout;
+    let actualConversationId = options.conversationId;
+
+    if (result.stdout) {
+      try {
+        const parsed = JSON.parse(result.stdout);
+        if (parsed.response !== undefined) {
+          finalOutput = parsed.response;
+        }
+        if (parsed.conversation_id) {
+          actualConversationId = parsed.conversation_id;
+        }
+      } catch (e) {
+        // Output is not JSON, leave it as is
+      }
+    }
+
     return {
-      output: result.stdout,
-      conversationId: options.conversationId,
+      output: finalOutput,
+      conversationId: actualConversationId,
       modelUsed: selectedModel,
       exitCode: result.exitCode,
       durationMs: result.durationMs,
