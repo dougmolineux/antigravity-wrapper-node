@@ -2,9 +2,9 @@
   <img src="./logo.jpg" alt="Antigravity Wrapper Logo" width="300"/>
 </div>
 
-# AGY Node SDK (`@dougmolineux/agy-node`)
+# AGY Node SDK (`antigravity-wrapper-node`)
 
-[![npm version](https://img.shields.io/npm/v/@dougmolineux/agy-node.svg)](https://www.npmjs.com/package/@dougmolineux/agy-node)
+[![npm version](https://img.shields.io/npm/v/antigravity-wrapper-node.svg)](https://www.npmjs.com/package/antigravity-wrapper-node)
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/dougmolineux/agy-node)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -15,11 +15,11 @@ A lightweight, zero-dependency TypeScript/Node.js SDK wrapper around Google's **
 ## 📦 Installation
 
 ```bash
-npm install @dougmolineux/agy-node
+npm install antigravity-wrapper-node
 # or
-yarn add @dougmolineux/agy-node
+yarn add antigravity-wrapper-node
 # or
-pnpm add @dougmolineux/agy-node
+pnpm add antigravity-wrapper-node
 ```
 
 > **Prerequisite**: Google AGY CLI (`agy`) must be installed and available in your local system `PATH` (or specified via `cliPath`).
@@ -48,7 +48,7 @@ graph TD
 ### 1. Single Execution (`AGYAdapter`)
 
 ```typescript
-import { AGYAdapter } from '@dougmolineux/agy-node';
+import { AGYAdapter } from 'antigravity-wrapper-node';
 
 const adapter = new AGYAdapter({
   cwd: '/Users/dougmolineux/dev/my-project',
@@ -75,7 +75,7 @@ main();
 ### 2. Multi-Turn Session Management (`AGYSessionManager`)
 
 ```typescript
-import { AGYAdapter, AGYSessionManager } from '@dougmolineux/agy-node';
+import { AGYAdapter, AGYSessionManager } from 'antigravity-wrapper-node';
 
 const adapter = new AGYAdapter();
 const manager = new AGYSessionManager(adapter);
