@@ -37,8 +37,10 @@ graph TD
     Adapter -->|Executes via| Runner[ProcessRunner]
     Runner -->|Spawns Subprocess| AGYCLI(Google AGY CLI Binary)
     AGYCLI -->|Returns Output| Runner
-    Runner -->|Parses & Returns| Adapter
-    Adapter -->|Returns Result| User
+    Runner -->|Returns Raw Output| Adapter
+    Adapter -->|Parses JSON & Returns| Session
+    Adapter -->|Parses JSON & Returns| User
+    Session -->|Returns Result| User
 ```
 
 ---
