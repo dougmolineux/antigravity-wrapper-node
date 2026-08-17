@@ -5,7 +5,7 @@
 # AGY Node SDK (`antigravity-wrapper-node`)
 
 [![npm version](https://img.shields.io/npm/v/antigravity-wrapper-node.svg)](https://www.npmjs.com/package/antigravity-wrapper-node)
-[![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/dougmolineux/agy-node)
+[![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/your-username/antigravity-wrapper-node)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A lightweight, zero-dependency TypeScript/Node.js SDK wrapper around Google's **AGY CLI** (Antigravity CLI harness). Designed for programmatically executing prompts, inspecting model telemetry, and managing deterministic multi-turn AI sessions across local project workspaces.
@@ -53,7 +53,7 @@ graph TD
 import { AGYAdapter } from 'antigravity-wrapper-node';
 
 const adapter = new AGYAdapter({
-  cwd: '/Users/dougmolineux/dev/my-project',
+  cwd: '/path/to/your/project',
   defaultModel: 'flash',
 });
 
@@ -85,7 +85,7 @@ const manager = new AGYSessionManager(adapter);
 async function runSession() {
   // Create an isolated session bound to a project path
   const session = manager.createSession({
-    projectPath: '/Users/dougmolineux/dev/churchill',
+    projectPath: '/path/to/another/project',
     model: 'pro',
   });
 
@@ -159,4 +159,4 @@ npm run test:coverage
 
 ## 📄 License
 
-MIT © Doug Molineux
+MIT © Your Name
