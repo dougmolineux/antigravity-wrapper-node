@@ -8,7 +8,7 @@ A lightweight, zero-dependency TypeScript/Node.js SDK wrapper around Google's **
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install @dougmolineux/agy-node
@@ -22,7 +22,7 @@ pnpm add @dougmolineux/agy-node
 
 ---
 
-## ⚡ Quickstart
+## Quickstart
 
 ### 1. Single Execution (`AGYAdapter`)
 
@@ -86,7 +86,7 @@ runSession();
 
 ---
 
-## ⚙️ Model Surface & Telemetry
+## Model Surface & Telemetry
 
 Inspect available models or specify per-request model overrides (`flash`, `pro`, `flash_lite`, etc.):
 
@@ -100,7 +100,7 @@ console.log('Default Active Model:', activeModel);
 
 ---
 
-## 🧪 Testing & Coverage
+## Testing & Coverage
 
 The SDK features a 100% unit test suite built with **Jest**, thoroughly mocking subprocess execution, streams, timeouts, process signals, missing binary errors (`ENOENT`), and multi-session concurrency.
 
@@ -114,7 +114,7 @@ npm run test:coverage
 
 ---
 
-## 📜 API Reference
+## API Reference
 
 ### `AGYAdapter`
 - `constructor(config?: AGYClientConfig, customRunner?: ProcessRunner)`
@@ -134,6 +134,6 @@ npm run test:coverage
 
 ---
 
-## 📄 License
+## License
 
 MIT © Doug Molineux
